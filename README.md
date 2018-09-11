@@ -1,2 +1,5 @@
-# serverless-portfolio
-This will be my professional serverless portfolio
+# Michael Zarate's Portfolio
+
+It will be using AWS and ReactJS
+
+
