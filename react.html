@@ -8,6 +8,9 @@
     <script type='text/javascript' src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
     <script type='text/javascript' src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
     <script type='text/javascript' src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+    <script type='text/javascript' src="https://unpkg.com/chai@4.0.2/chai.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mocha@3.4.2/mocha.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/mocha@5.2.0/mocha.css">
     <style media="screen">
         .messageBox {
             margin: 2em;
@@ -32,9 +35,9 @@
     </style>
 </head>
 <body>
-    <main id = 'content'>
-
-    </main>
+    <main id = 'content'></main>
+    <div id = 'mocha'></div>
+    <!--REACT SCRIPTS -->
     <script type="text/babel" data-presets='react'>
 
         class NameInput extends React.Component {
@@ -67,8 +70,8 @@
 
                 return (
                     <div> 
-                        <label>Name: <input ref="nameInput" type="text"/> </label>
-                        <button onClick={this.buttonClicked}> Click me! </button>
+                        <label>Name: <input id="nameInputs" ref="nameInput" type="text"/> </label>
+                        <button id='inputButton' onClick={this.buttonClicked}> Click me! </button>
                         <MessageBox type={msg.type} message={msg.body}/>
                     </div>    
                 )
@@ -87,6 +90,55 @@
 
         ReactDOM.render(< NameInput />, document.getElementById('content'));
     </script>
-    
+
+    <!--TESTING AREA -->
+    <script type="text/babel" data-presets="react">
+
+        const assert = chai.assert;
+        mocha.ui("bdd");
+        mocha.reporter("html");
+
+        describe("Example Test", () => {
+            it("Proves Math Still Works", () => {
+                assert.equal(5, 3+2, "Math still works :)");
+                assert.notEqual(3+2, 7, "math still works XD!");
+                assert.closeTo(Math.PI, 3, 0.2, "Pi is close to 3");
+            });
+
+            it("We Found our React Component 'MessageBox'", () => {
+                assert.isDefined(MessageBox, "Our Message box");
+            });
+            
+            it("Testing our function for fun", ()=> {
+                let myName = "Michael";
+                const greet = (name) => "Hello " + name + "!";
+                assert.include(greet(myName), myName, "My name 'myName' has been included");
+            });
+        });
+
+        describe("Functional UI Test", () => {
+            it("Rendered an Empty MessageBox", () => {
+                let msgBox = document.querySelector(".messageBox");
+                assert.isDefined(msgBox, "[ Message Box is defined ]");
+                assert.include(msgBox.classList.value, 'hidden', "[MessageBox also has the class 'hidden']");
+                assert.equal(msgBox.innerText, "", "[MessageBox has an empty string]");
+            });
+            it("Rendered an Error when no name was entered", () =>{
+                let msgBox = document.querySelector(".messageBox");
+                let button = document.querySelector("#inputButton");
+                button.click();
+                assert.include(msgBox.classList.value, 'error', "[We successfully triggered an error!]");
+            });
+            it("Rendered a Success when a name was entered", () => {
+                let msgBox = document.querySelector(".messageBox");
+                let nameInput = document.querySelector("#nameInputs")
+                let button = document.querySelector("#inputButton");
+                nameInput.value = "bob";
+                button.click();
+                assert.include(msgBox.classList.value, "success", "[We Successfully triggered a good post!]");
+            });
+        });
+        mocha.run();
+    </script>    
 </body>
 </html>
