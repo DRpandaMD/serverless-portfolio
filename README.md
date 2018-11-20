@@ -22,6 +22,7 @@ It will be using AWS and ReactJS
 
 ## Manage NPM
 - npm init
+- npm audit
 - npm run webpack
 - npm run webpack --watch
 
