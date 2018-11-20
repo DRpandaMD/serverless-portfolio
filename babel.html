@@ -31,7 +31,7 @@
     </main>
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type='text/babel' data-presets="latest">
-        const getMessage = (name) => `welcome to javascript, ${name}!`;
+        const getMessage = (name) => `Welcome to Javascript, ${name}!`;
         const button = document.getElementById('submit_info');
         
         // get message area to reset error display
@@ -46,10 +46,13 @@
             let name = document.getElementById("name").value;
 
             if (name.length < 2){
+                // here we are really checking for an empty box, but added a two char
+                // limit for most western names are longer than 2 chars
                 messageArea.textContent = "You need to use more than two characters";
                 messageArea.className = "errorBox";
             }
             else {
+                // otherwise we display normal message content
                 contentArea.textContent = getMessage(name);
             }
             
