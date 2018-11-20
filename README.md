@@ -20,6 +20,10 @@ It will be using AWS and ReactJS
 - Chai
 
 
+## Manage NPM
+- npm init
+- npm run webpack
+- npm run webpack --watch
 
 ## NPM Commands for record
 - npm install --save react@16.2.0 react-dom@16.2.0
@@ -30,3 +34,7 @@ It will be using AWS and ReactJS
 ## Local Development
 - local webserver should be installed
 - run 'ws' to serve locally
+
+
+
+
