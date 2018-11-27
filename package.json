@@ -4,9 +4,13 @@
   "description": "A Serverless Portfolio",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "webpack": "webpack",
     "webpack-watch": "webpack --watch"
+  },
+  "jest" :{
+    "verbose": true,
+    "testURL": "http://localhost/"
   },
   "repository": {
     "type": "git",

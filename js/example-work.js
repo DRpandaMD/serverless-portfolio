@@ -38,3 +38,4 @@ class ExampleWorkBubble extends React.Component {
     }
 }
 export default ExampleWork;
+export { ExampleWorkBubble }; // this will be asked for and used in our jest tests
