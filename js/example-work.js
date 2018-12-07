@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleWorkModal from './example-work-modal'
+import ExampleWorkModal from './example-work-modal';
 
 class ExampleWork extends React.Component {
     constructor(props){
@@ -8,45 +8,45 @@ class ExampleWork extends React.Component {
         this.state = {
             // we want to manage the state of our model open or close
             // and we want to manage which selection (bubble) is selected
-            'modalOpen': false, // we want to leave it closed
-            'selectedExample': this.props.work[0] // our default selection
+            modalOpen: false, // we want to leave it closed
+            selectedExample: this.props.work[0] // our default selection
         }
 
         //object binding
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
-    };
+    }
 
     // logic to control modal state and selection based on button events
     openModal(evt, example)
     {
         this.setState({
-            'modalOpen' : true,
-            'selectedExample' : example
+            modalOpen: true,
+            selectedExample: example
         });
-    };
+    }
 
     closeModal(evt)
     {
         this.setState({
-            'modalOpen' : false
+            modalOpen: false
         });
-    };
+    }
+
     render () {
-        return(
-            <span> //normally we can only return ONE JSX element
+        return (
+            <span> {/* normally we can only return ONE JSX element */}
                 <section className="section section--alignCentered section--description">
-                { this.props.work.map( (example, idx) => {
-                    //console.log("Inside this.props.work.map")
-                    return(
-                        <ExampleWorkBubble example={example} key={idx}
-                            openModal={this.openModal}/>
-                        )
-                    })
-                };
+                { this.props.work.map((example, idx) => (
+                    <ExampleWorkBubble example={example} key={idx} openModal={this.openModal} />
+                    ))
+                }
                 </section>
-                <ExampleWorkModal example={this.state.selectedExample}
-                    open={this.state.modalOpen} close={this.state.modalClose}/>
+                <ExampleWorkModal 
+                    example={this.state.selectedExample}
+                    open={this.state.modalOpen} 
+                    close={this.closeModal}
+                />
             </span> // but if we wrap everyting in a span element we can
             // return both our Example Work bubbles and the modals
         );
@@ -55,7 +55,7 @@ class ExampleWork extends React.Component {
 
 class ExampleWorkBubble extends React.Component {
     render () {
-        let example = this.props.example;
+        const { example, openModal } = this.props;
         return (
             <div className="section__exampleWrapper"
             onClick={ (evt) => this.props.openModal(evt, example)}>
