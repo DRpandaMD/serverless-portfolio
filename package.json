@@ -8,7 +8,7 @@
     "webpack": "webpack",
     "webpack-watch": "webpack --watch"
   },
-  "jest" :{
+  "jest": {
     "verbose": true,
     "testURL": "http://localhost/"
   },
