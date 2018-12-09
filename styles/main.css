@@ -179,6 +179,19 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3rem;
 }
 
+@media screen and (max-width: 480px) {
+
+  .socialWrapper {
+    font-size: 4rem;
+  }
+
+  .social {
+    margin-right: 0.9rem;
+  }
+
+
+}
+
 
 /*
   Modal
