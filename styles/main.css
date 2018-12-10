@@ -83,10 +83,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .section {
   font-size: 4.2rem;
-  min-height: 70vh;
   position: relative;
   padding-top: 5rem;
   padding-bottom: 5rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section--fixed-height {
+  min-height: 60vh;
 }
 
 .section--alignCentered {
@@ -150,6 +155,21 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: -50%;
 }
 
+@media screen and (max-width: 900px) {
+  .section__exampleWrapper {
+    width: 100%;
+    margin: 0 0 60px 0;
+  }
+
+  .section__example {
+    display: block;
+    width: 100%;
+    max-width: 34rem;
+    margin: 0 auto;
+  }
+}
+
+
 /*
   Header
 */
@@ -177,6 +197,27 @@ h1, h2, h3, h4, h5, h6 {
 .socialWrapper {
   display: inline-block;
   font-size: 3rem;
+}
+
+@media screen and (max-width: 900px) {
+
+  .section--social {
+    line-height: 4.5rem;
+  }
+
+  .section__heading--largest {
+    font-size: 2.35rem;
+    margin-left: 2rem;
+  }
+
+  .socialWrapper {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  .social {
+    margin-right: 0.8rem;
+  }
 }
 
 
@@ -211,9 +252,13 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   z-index: 100;
+  overflow-y: scroll;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   -webkit-backface-visibility: hidden;
   animation: modal-zoom 0.25s;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .modal__closeButton {
@@ -261,4 +306,19 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+@media screen and (max-width: 600px) {
+
+  .modal__closeButton {
+    position: absolute;
+    right: 2rem;
+    top: 3rem;
+    font-size: 3rem;
+  }
+
+  .modal__text {
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
 }

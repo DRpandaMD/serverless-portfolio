@@ -36,6 +36,7 @@ It will be using AWS and ReactJS
 ## Local Development
 - local webserver should be installed: ```npm i -g local-web-server```
 - run 'ws' to serve locally
+- run `wepback-watch` to compile assets
 
 
 

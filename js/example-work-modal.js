@@ -7,13 +7,10 @@ class ExampleWorkModal extends React.Component{
         const { example, close, open } = this.props;
         let modalClass = open ? 'modal--open' : 'modal--closed';
         return(
-        <div className={"background--skyBlue " + modalClass}>
+        <div className={"background--skyBlue " + modalClass} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${ example.image.src })`}}>
             <span className="color--cloud modal__closeButton" onClick={() => close()}>
                 <i className="fa fa-window-close-o"></i>
             </span>
-            <img alt={example.image.desc}
-                className="modal__image"
-                src={example.image.src} />
             <div className="color--cloud modal__text">
                 <div className="modal__text--inner">
                     <h2 className="modal__title">
