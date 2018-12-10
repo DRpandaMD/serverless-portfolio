@@ -28,6 +28,10 @@
   color: rgb(52, 152, 219);
 }
 
+.color--black {
+  color: rgb(0,0,0);
+}
+
 .color--cloud {
   color: rgb(236, 240, 241);
 }
