@@ -4,9 +4,9 @@ import ExampleWork from "./example-work";
 
 const myWork = [
     {
-        'title': "Work Example One",
-        'href': "https://example.com",
-        'desc': "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate finibus felis sagittis aliquet. Phasellus ullamcorper, quam nec lobortis maximus, lectus elit dignissim velit, ut varius purus neque a massa. Integer egestas eget elit lacinia commodo. Suspendisse tempor ex enim, nec convallis felis tincidunt id. Duis fringilla ipsum porta tristique elementum. Duis consectetur metus non congue ultricies. Nulla eu nisi odio. Sed sed egestas arcu.",
+        'title': "Serverless Blog",
+        'href': "https://blog.zaratedev.org/",
+        'desc': "My Serverless Blog I made using Hexo and AWS!",
         'image': {
             'desc': "example screenshot of a project involving code",
             'src': "images/example1.png",
